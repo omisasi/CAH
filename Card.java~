@@ -1,0 +1,74 @@
+/*
+ * ICS4U FINAL PROJECT
+ * OLIVIA MISASI
+ */
+
+import javafx.scene.Parent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+public class Card extends Parent
+{ 
+  private String colour;
+  private String word;
+  private int player;
+  
+  public Card()
+  {    
+  }
+  public Card(String colour, String word) 
+  { 
+    this.colour = colour;
+    this.word = word;
+    int player = 0;
+    
+    //sets the rectangle shape, arc... smooths the edges of the rectangle
+    Rectangle cd = new Rectangle(50, 80);
+    cd.setArcHeight(20);
+    cd.setArcHeight(20);
+    if(colour.equals("white"))
+    {
+      cd.setFill(Color.WHITE); //makes the card colour the set colour
+    }
+    else
+    {
+      cd.setFill(Color.BLACK);
+    }
+    Text text = new Text(word); //puts the text on the card
+    text.setWrappingWidth(70); //makes sure the text stays on the rectangle
+    getChildren().add(new StackPane(cd, text)); //makes sure the text is on top of the rectangle
+  }
+  public String getColour()
+  {
+    return this.colour;
+  }
+  public String toString()
+  {
+    return this.word;
+  }
+  public int getPlayer()
+  {
+    return this.player;
+  }
+  public void setPlayer(int player)
+  {
+    this.player = player;
+  }
+  public void setColour(String colour)
+  {
+    colour = colour.toLowerCase();
+    if(colour.equals("white")|| colour.equals("black"))
+    {
+      this.colour = colour;
+    }
+    else
+    {
+      System.out.println("INVALID INPUT");
+    }
+  }
+  public void setString(String word)
+  {
+    this.word = word;
+  }
+}
